@@ -4,7 +4,7 @@ ENVIRONMENT=$1
 TAG_NAME=$2
 
 PORT=0
-case $INPUT_STRING in
+case $ENVIRONMENT in
 dev) PORT=9966 ;;
 test) PORT=9967 ;;
 prod) PORT=9968 ;;
