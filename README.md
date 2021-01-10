@@ -12,3 +12,5 @@ Feel free to fork this repo.
 Springboot profiles
 https://stackoverflow.com/questions/37700352/setting-the-default-active-profile-in-spring-boot
 https://www.baeldung.com/spring-profiles
+https://docs.docker.com/network/network-tutorial-standalone/
+https://www.katacoda.com/bhood4/scenarios/tf101
