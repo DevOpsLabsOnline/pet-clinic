@@ -74,7 +74,7 @@ pipeline {
             agent any
             steps {
                 sh "chmod +x robot.sh"
-                sh "./robot.sh"
+                sh "./test.sh"
             }
         }   
         
