@@ -33,16 +33,8 @@ pipeline {
         stage('Deploy Development') {
             agent any
             steps {
-                sh '''
-                    for runName in `docker ps | grep "alpine-petclinic-dev" | awk '{print $1}'`
-                    do
-                        if [ "$runName" != "" ]
-                        then
-                            docker stop $runName
-                        fi
-                    done
-                    docker run --name alpine-petclinic-dev --rm -d -p 9966:8080 $TAG_NAME
-                '''
+                sh "chmod +x deploy.sh"
+                sh "./deploy.sh dev $TAG_NAME"
             }
         }
     }
