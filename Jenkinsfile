@@ -37,5 +37,7 @@ pipeline {
                 sh "./deploy.sh dev $TAG_NAME"
             }
         }
+        
+
     }
 }
