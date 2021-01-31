@@ -73,8 +73,8 @@ pipeline {
             }
             agent any
             steps {
-                sh "chmod +x robot.sh"
-                sh "./test.sh"
+                sh "chmod +x ui-tests.sh"
+                sh "./ui-tests.sh"
             }
         }   
         
