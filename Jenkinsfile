@@ -12,11 +12,12 @@ pipeline {
             steps {
                 sh "mvn --batch-mode package" 
             }
-            post {
-                success {
-                    echo 'Archive Test Results'
-                    junit 'target/surefire-reports/TEST-*.xml'
-                }
+        }
+
+        stage('Publish Tests Results') {
+            agent any
+            steps {
+                junit 'target/surefire-reports/TEST-*.xml'
             }
         }
         
