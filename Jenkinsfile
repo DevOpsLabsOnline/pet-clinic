@@ -1,7 +1,7 @@
 if (currentBuild.buildCauses.toString().contains('BranchIndexingCause')) {
-  print "INFO: Build skipped due to trigger being Branch Indexing"
-  currentBuild.result = 'ABORTED'
-  return
+    print "INFO: Build skipped due to trigger being Branch Indexing"
+    currentBuild.result = 'ABORTED'
+    return
 }
 
 pipeline {
@@ -12,13 +12,11 @@ pipeline {
             steps {
                 sh "mvn --batch-mode package" 
             }
-        }
-
-        stage('Publish Tests Results') {
-            agent any
-            steps {
-               echo 'Archive Unit Test Results'
-               step([$class: 'JUnitResultArchiver', testResults: 'target/surefire-reports/TEST-*.xml'])
+            post {
+                success {
+                    echo 'Archive Test Results'
+                    junit 'target/surefire-reports/TEST-*.xml'
+                }
             }
         }
         
